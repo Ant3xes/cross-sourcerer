@@ -37,6 +37,28 @@
       nodes {
         updatedAt
         createdAt
+        languages(first: 100) {
+          totalCount
+          nodes {
+            name
+            color
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+# Partie 3
+{
+  user(login: "Ant3xes") {
+    repositories(first: 100) {
+      totalCount
+      nodes {
+        updatedAt
+        createdAt
         defaultBranchRef {
           target {
             ... on Commit {
@@ -61,7 +83,7 @@
 }
 
 
-# Partie 3
+# Partie 4
 {
   user(login: "Ant3xes") {
     updatedAt
@@ -85,27 +107,6 @@
                 totalCount
               }
             }
-          }
-        }
-      }
-    }
-  }
-}
-
-
-# Partie 4
-{
-  user(login: "Ant3xes") {
-    repositories(first: 100) {
-      totalCount
-      nodes {
-        updatedAt
-        createdAt
-        languages(first: 100) {
-          totalCount
-          nodes {
-            name
-            color
           }
         }
       }
