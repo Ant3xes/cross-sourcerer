@@ -13,6 +13,7 @@ export const infoUser = gql`
         totalCount
       }
       repositories(first: 100) {
+        totalCount
         nodes {
           name
           defaultBranchRef {
@@ -31,3 +32,42 @@ export const infoUser = gql`
     }
   }
   `
+export const Repositories = gql`
+{
+  user(login: "Ant3xes") {
+    updatedAt
+    repositories(first: 100) {
+      nodes {
+        name
+        description
+        nameWithOwner
+        createdAt
+        collaborators {
+          totalCount
+          nodes {
+            avatarUrl
+            name
+            login
+          }
+        }
+        languages(first: 100) {
+          totalCount
+          nodes {
+            name
+            color
+          }
+      }
+        defaultBranchRef {
+          target {
+            ... on Commit {
+              history {
+                totalCount
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
